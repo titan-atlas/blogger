@@ -5,7 +5,7 @@ class Article < ApplicationRecord
     has_many :attachments
 
     has_attached_file :image
-    validates_attachment :image, :content_type => { :content_type => "image/jpg", "image/jpeg", "image/png" }
+    validates_attachment :image, :content_type => [ "image/jpg", "image/jpeg", "image/png" ]
 
     def tag_list
         self.tags.collect do |tag|
